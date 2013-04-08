@@ -279,6 +279,6 @@ public class AlertDialogFragment extends DialogFragment {
 
 	public interface Callbacks {
 		void onDialogClicked(DialogInterface dialog, int which);
-		void onDialogCancelled(DialogInterface dialog);
+		void onDialogCanceled(DialogInterface dialog);
 	}
 }
