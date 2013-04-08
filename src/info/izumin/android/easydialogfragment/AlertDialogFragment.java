@@ -84,7 +84,7 @@ public class AlertDialogFragment extends DialogFragment {
 	
 	@Override
 	public void onCancel(DialogInterface dialog) {
-		callbacks.onDialogCancelled(dialog);
+		callbacks.onDialogCanceled(dialog);
 	}
 	
 	public static class Builder {
