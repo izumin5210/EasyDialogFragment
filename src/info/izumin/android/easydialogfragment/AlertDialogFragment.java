@@ -34,7 +34,7 @@ public class AlertDialogFragment extends DialogFragment {
 				@Override
 				public void onDialogClicked(DialogInterface dialog, int which) {}
 				@Override
-				public void onDialogCancelled(DialogInterface dialog) {}
+				public void onDialogCanceled(DialogInterface dialog) {}
 			};
 		}
 		
