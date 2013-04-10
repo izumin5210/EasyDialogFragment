@@ -5,7 +5,6 @@ import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
-
 public class ProgressDialogFragment extends DialogFragment {
 
 	private static final String KEY_ICON = "key_icon",
@@ -16,7 +15,7 @@ public class ProgressDialogFragment extends DialogFragment {
 
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		ProgressDialog dialog = new ProgressDialog(getActivity());
-		Bundle args = new Bundle();
+		Bundle args = getArguments();
 		
 		if (args.containsKey(KEY_ICON)) dialog.setIcon(args.getInt(KEY_ICON));
 		

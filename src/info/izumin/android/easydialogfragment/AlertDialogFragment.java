@@ -32,9 +32,9 @@ public class AlertDialogFragment extends DialogFragment {
 		} else {
 			callbacks = new AlertDialogFragment.Callbacks() {
 				@Override
-				public void onDialogClicked(DialogInterface dialog, int which) {}
+				public void onDialogClicked(DialogInterface dialog, int which, String tag) {}
 				@Override
-				public void onDialogCanceled(DialogInterface dialog) {}
+				public void onDialogCanceled(DialogInterface dialog, String tag) {}
 			};
 		}
 		
@@ -42,12 +42,12 @@ public class AlertDialogFragment extends DialogFragment {
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						callbacks.onDialogClicked(dialog, which);
+						callbacks.onDialogClicked(dialog, which, getTag());
 					}
 				};
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		Bundle args = new Bundle();
+		Bundle args = getArguments();
 		
 		if (args.containsKey(KEY_ICON)) builder.setIcon(args.getInt(KEY_ICON));
 		
@@ -84,7 +84,7 @@ public class AlertDialogFragment extends DialogFragment {
 	
 	@Override
 	public void onCancel(DialogInterface dialog) {
-		callbacks.onDialogCanceled(dialog);
+		callbacks.onDialogCanceled(dialog, getTag());
 	}
 	
 	public static class Builder {
@@ -278,7 +278,7 @@ public class AlertDialogFragment extends DialogFragment {
 	}
 
 	public interface Callbacks {
-		void onDialogClicked(DialogInterface dialog, int which);
-		void onDialogCanceled(DialogInterface dialog);
+		void onDialogClicked(DialogInterface dialog, int which, String tag);
+		void onDialogCanceled(DialogInterface dialog, String tag);
 	}
 }
